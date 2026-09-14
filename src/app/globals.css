@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-bg: #fbfbfa;
+  --color-panel: #ffffff;
+  --color-panel-subtle: #f4f4f2;
+  --color-border: #e6e6e3;
+  --color-border-subtle: #eeeee9;
+  --color-text-primary: #18181b;
+  --color-text-secondary: #52525b;
+  --color-text-muted: #71717a;
+  --color-brand-primary: #4f46e5;
+  --color-brand-hover: #4338ca;
+  --color-brand-accent: #059669;
+  --color-brand-warm: #d9730d;
+}
+
+.dark {
+  --color-bg: #0f1117;
+  --color-panel: #161822;
+  --color-panel-subtle: #1e212f;
+  --color-border: #262a3c;
+  --color-border-subtle: #31374e;
+  --color-text-primary: #f4f4f5;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-brand-primary: #6366f1;
+  --color-brand-hover: #4f46e5;
+  --color-brand-accent: #10b981;
+  --color-brand-warm: #f59e0b;
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-panel: var(--color-panel);
+  --color-panel-subtle: var(--color-panel-subtle);
+  --color-border: var(--color-border);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-brand-primary: var(--color-brand-primary);
+  --color-brand-hover: var(--color-brand-hover);
+  --color-brand-accent: var(--color-brand-accent);
+  --color-brand-warm: var(--color-brand-warm);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Pulse animation for SVG workflow conduits */
+@keyframes conduitPulse {
+  0% {
+    stroke-dashoffset: 48;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.conduit-pulse {
+  stroke-dasharray: 6 6;
+  animation: conduitPulse 1.8s linear infinite;
+}
+
+.conduit-pulse-fast {
+  stroke-dasharray: 8 6;
+  animation: conduitPulse 0.9s linear infinite;
+}
